@@ -6,8 +6,8 @@ public class Student {
         System.out.println("Tra tra tra");
     }
 
-    public void song() {
-        System.out.println("I believe I can fly");
+    public void song(String lyrics) {
+        System.out.println("I can sing a song : " + lyrics);
     }
 
     public static void main(String[] args) {
@@ -15,8 +15,9 @@ public class Student {
         petya.music();
         petya.music();
         petya.music();
-        petya.song();
-        petya.song();
-        petya.song();
+        String song = "I believe, I can fly";
+        petya.song(song);
+        petya.song(song);
+        petya.song(song);
     }
 }
