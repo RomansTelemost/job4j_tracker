@@ -1,9 +1,9 @@
 package ru.job4j.oop;
 
 public class Car {
-
     private String brand;
     private String model;
+    private static String carManual = "Инструкция к автомобилю";
 
     public Car(String brand, String model) {
         this.brand = brand;
@@ -12,6 +12,12 @@ public class Car {
 
     public void startEngine() {
         System.out.println("Двигатель запущен");
+    }
+
+    public static TripComputer getTripComputer() {
+        Car car = new Car("", "");
+        Car.TripComputer tr = car.new TripComputer();
+        return tr;
     }
 
     public class Transmission {
@@ -30,8 +36,8 @@ public class Car {
 
     public class TripComputer {
 
+        public String info = "Бортовой компьютер";
         private String model = "Модель TripComputer";
-        public String tripData = "Бортовой компьютер";
 
         public void getInfo() {
             System.out.println("Марка: " + brand);
@@ -40,9 +46,10 @@ public class Car {
         }
     }
 
-    public static TripComputer getTripComputer() {
-        Car car = new Car("", "");
-        Car.TripComputer tr = car.new TripComputer();
-        return tr;
+    public static class Manual {
+
+        public static String getManual() {
+            return carManual;
+        }
     }
 }
