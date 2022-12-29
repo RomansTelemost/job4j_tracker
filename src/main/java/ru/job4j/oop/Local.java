@@ -34,5 +34,4 @@ public class Local {
         local.name = "New name";
         local.getFullName();
     }
-
 }
