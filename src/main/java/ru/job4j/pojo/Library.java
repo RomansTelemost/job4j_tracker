@@ -3,7 +3,7 @@ package ru.job4j.pojo;
 public class Library {
 
     public static void main(String[] args) {
-        Book[] books = new Book[4];
+        Book[] books = new Book[5];
         books[0] = new Book("Clean code", 400);
         books[1] = new Book("Java 8", 500);
         books[2] = new Book("Concurrency in Java", 600);
