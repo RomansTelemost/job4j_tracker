@@ -13,8 +13,7 @@ public class Triangle {
     }
 
     public double semiPerimeter(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return (a + b + c) / 2;
     }
 
     public boolean exist(double ab, double ac, double bc) {
@@ -27,7 +26,8 @@ public class Triangle {
         double ac = first.distance(third);
         double bc = second.distance(third);
         if (this.exist(ab, ac, bc)) {
-            rsl = semiPerimeter(ab, ac, bc);
+            double semiPerimeter = semiPerimeter(ab, ac, bc);
+            rsl = Math.sqrt(semiPerimeter * (semiPerimeter - ab) * (semiPerimeter - ac) * (semiPerimeter - bc));
         }
         return rsl;
     }
