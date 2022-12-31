@@ -23,7 +23,7 @@ class UserStoreTest {
     @Test
     public void whenUserIsValidThenNotException() throws UserInvalidException {
         User user = new User("Joe", true);
-        assertThat(UserStore.validate(user)).isFalse();
+        assertThat(UserStore.validate(user)).isTrue();
     }
 
     @Test

@@ -4,9 +4,9 @@ public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User foundUser = null;
-        for (int i = 0; i < users.length; i++) {
-            if (login.equals(users[i].getUsername())) {
-                foundUser = users[i];
+        for (User user : users) {
+            if (login.equals(user.getUsername())) {
+                foundUser = user;
                 break;
             }
         }
@@ -23,7 +23,7 @@ public class UserStore {
         if (user.getUsername().length() < 3) {
             throw new UserInvalidException("Username cannot contain less than 3 symbols");
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
