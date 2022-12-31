@@ -11,16 +11,11 @@ public class MagicBall {
         scanner.nextLine();
         int randomNumber = new Random().nextInt(3);
 
-        switch (randomNumber) {
-            case 1 :
-                System.out.println("Да");
-                break;
-            case 2 :
-                System.out.println("Нет");
-                break;
-            default:
-                System.out.println("Может быть");
-                break;
-        }
+        String message = switch (randomNumber) {
+            case 1 -> "Да";
+            case 2 -> "Нет";
+            default -> "Может быть";
+        };
+        System.out.println(message);
     }
 }
