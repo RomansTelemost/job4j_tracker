@@ -10,10 +10,9 @@ public class SingleTracker {
 
     public static SingleTracker getSingleTrackerInstance() {
         if (singleTracker == null) {
-            return new SingleTracker();
-        } else {
-            return singleTracker;
+            singleTracker = new SingleTracker();
         }
+        return singleTracker;
     }
 
     public Item add(Item item) {
