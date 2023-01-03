@@ -81,12 +81,5 @@ public class Tracker {
         System.out.println("Before b " + Arrays.toString(b));
         System.arraycopy(a, 4, b, 3, 6);
         System.out.println("After " + Arrays.toString(b));
-
-        // src - источник
-        // srcPos - индекс с какого нужно брать данные из src
-        // dest - где будет результат
-        // destPos - индекс с какого нужно вставлять в dest
-        // length - сколько данных брать из src
-//        System.arraycopy(a, 3, b, 0, 3);
     }
 }
