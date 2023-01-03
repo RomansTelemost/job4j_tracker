@@ -30,4 +30,12 @@ public class SingleTracker {
     public Item[] findAll() {
         return tracker.findAll();
     }
+
+    public boolean replace(int id, Item item) {
+        return tracker.replace(id, item);
+    }
+
+    public boolean delete(int id) {
+        return tracker.delete(id);
+    }
 }
