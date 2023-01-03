@@ -89,24 +89,35 @@ public class TrackerTest {
     @Test
     public void whenDeleteItemIsSuccessful() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("Bug");
-        Item item2 = new Item("Bug");
-        Item item3 = new Item("Bug");
+        Item item1 = new Item("Bug1");
+        Item item2 = new Item("Bug2");
+        Item item3 = new Item("Bug3");
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-        int id = item1.getId();
+        int id = item2.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id)).isNull();
+        assertThat(tracker.findAll().length).isEqualTo(2);
+        assertThat(tracker.findAll()[0]).isEqualTo(item1);
+        assertThat(tracker.findAll()[1]).isEqualTo(item3);
     }
 
     @Test
     public void whenDeleteItemIsNotSuccessful() {
         Tracker tracker = new Tracker();
-        Item item = new Item("Bug");
-        tracker.add(item);
+        Item item1 = new Item("Bug1");
+        Item item2 = new Item("Bug2");
+        Item item3 = new Item("Bug3");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
         boolean result = tracker.delete(1000);
-        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
+        assertThat(tracker.findById(item1.getId()).getName()).isEqualTo("Bug1");
         assertThat(result).isFalse();
+        assertThat(tracker.findAll().length).isEqualTo(3);
+        assertThat(tracker.findAll()[0]).isEqualTo(item1);
+        assertThat(tracker.findAll()[1]).isEqualTo(item2);
+        assertThat(tracker.findAll()[2]).isEqualTo(item3);
     }
 }

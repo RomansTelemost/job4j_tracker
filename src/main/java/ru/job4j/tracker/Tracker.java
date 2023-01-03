@@ -59,13 +59,34 @@ public class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             items[index] = null;
-            int[] i = new int[100];
             size--;
-            System.arraycopy(items, index+1, items, index, size);
+            System.arraycopy(items, index + 1, items, index, size);
             items[size] = null;
             return true;
-        } else {
-            return false;
         }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[10];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = i + 1;
+        }
+        int[] b = new int[10];
+        for (int i = 0; i < b.length; i++) {
+            b[i] = 1;
+        }
+        a[3] = 0;
+        System.out.println("Before " + Arrays.toString(a));
+        System.out.println("Before b " + Arrays.toString(b));
+        System.arraycopy(a, 4, b, 3, 6);
+        System.out.println("After " + Arrays.toString(b));
+
+        // src - источник
+        // srcPos - индекс с какого нужно брать данные из src
+        // dest - где будет результат
+        // destPos - индекс с какого нужно вставлять в dest
+        // length - сколько данных брать из src
+//        System.arraycopy(a, 3, b, 0, 3);
     }
 }
