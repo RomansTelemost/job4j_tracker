@@ -24,6 +24,5 @@ public class ConcatTest {
         System.out.println(stringJoiner);
         String joined = stringJoiner.toString();
         System.out.println(joined);
-
     }
 }
