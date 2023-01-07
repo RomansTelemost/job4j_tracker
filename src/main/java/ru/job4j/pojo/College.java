@@ -10,9 +10,11 @@ public class College {
         Student student = new Student();
         student.setFullName("Petr Petrov");
         student.setGroup("FOIT");
-        student.setAdmissionDate(LocalDate.parse("09-10-2013", DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.UK)));
+        student.setAdmissionDate(LocalDate.parse("09-10-2013",
+                DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.UK)));
         System.out.println("Full name: " + student.getFullName()
                 + " Group : " + student.getGroup()
-                + " Admission date : " + student.getAdmissionDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+                + " Admission date : "
+                + student.getAdmissionDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
     }
 }

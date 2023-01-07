@@ -16,7 +16,8 @@ public class Matches {
             if (matches < 1 || matches > 3) {
                 System.out.println("Необходимо ввести число только от 1 до 3!");
             } else if (count < matches) {
-                System.out.println("Необходимо ввести число не большее количества оставшихся спичек!");
+                System.out.println("Необходимо ввести число не "
+                        + "большее количества оставшихся спичек!");
             } else {
                 turn = !turn;
                 count -= matches;

@@ -1,7 +1,5 @@
 package ru.job4j.oop;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Local {
 
     private String name = "Petr";
@@ -11,7 +9,8 @@ public class Local {
     }
 
     /**
-     * We cannot change local variable define in local class. But can change variable of upper class.
+     * We cannot change local variable define in
+     * local class. But can change variable of upper class.
      */
     public void getFullName() {
         final String surname = "Arsentev";
