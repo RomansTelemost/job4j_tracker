@@ -11,19 +11,19 @@ public class Broken {
 
     public Broken() { }
 
-    void echo() { }
+    public void echo() { }
 
-    void media(Object obj) {
+    public void media(Object obj) {
         if (obj != null) {
             System.out.println(obj);
         }
     }
 
-    void firstMethod(int a, int b, int c, int d) {
+    public void firstMethod(int a, int b, int c, int d) {
 
     }
 
-    void secondMethod(int e, int f, int g, int h) {
+    public void secondMethod(int e, int f, int g, int h) {
 
     }
 }
