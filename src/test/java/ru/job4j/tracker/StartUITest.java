@@ -73,7 +73,6 @@ class StartUITest {
         );
     }
 
-
     @Test
     public void whenReplaceItemTestOutputIsSuccessfully() {
         Output out = new StubOutput();
