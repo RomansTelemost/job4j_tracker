@@ -145,7 +145,7 @@ class StartUITest {
                         + "0. Find items by name" + ln
                         + "1. Exit" + ln
                         + "=== Find items by name ===" + ln
-                        + tracker.findAll()[0] + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Find items by name" + ln
                         + "1. Exit" + ln
@@ -171,7 +171,7 @@ class StartUITest {
                         + "0. Find item by id" + ln
                         + "1. Exit" + ln
                         + "=== Find item by id ===" + ln
-                        + tracker.findAll()[0] + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Find item by id" + ln
                         + "1. Exit" + ln
