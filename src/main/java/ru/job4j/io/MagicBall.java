@@ -8,7 +8,6 @@ public class MagicBall {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Я великий Оракул. Что ты хочешь узнать? ");
-        scanner.nextLine();
         int randomNumber = new Random().nextInt(3);
 
         String message = switch (randomNumber) {
