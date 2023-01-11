@@ -10,6 +10,56 @@ public class PasswordValidator {
             "user"
     };
 
+    private static boolean containForbiddenTextSequences(String password) {
+        for (String forbiddenTextSequence : FORBIDDEN_TEXT_SEQUENCES) {
+            if (password.toLowerCase().contains(forbiddenTextSequence)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containAtLeastOneSpecialSymbol(String password) {
+        char[] letters = password.toCharArray();
+        for (char letter : letters) {
+            if (!Character.isLetter(letter)
+                    && !Character.isDigit(letter)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containAtLeastOneFigure(String password) {
+        char[] letters = password.toCharArray();
+        for (char letter : letters) {
+            if (Character.isDigit(letter)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containAtLeastOneLowercaseLetter(String password) {
+        char[] letters = password.toCharArray();
+        for (char letter : letters) {
+            if (Character.isLowerCase(letter)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containAtLeastOneUppercaseLetter(String password) {
+        char[] letters = password.toCharArray();
+        for (char letter : letters) {
+            if (Character.isUpperCase(letter)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static String validate(String password) {
 
         if (password == null) {
@@ -45,55 +95,5 @@ public class PasswordValidator {
         }
 
         return password;
-    }
-
-    private static boolean containAtLeastOneUppercaseLetter(String password) {
-        char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (Character.isUpperCase(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean containAtLeastOneLowercaseLetter(String password) {
-        char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (Character.isLowerCase(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean containAtLeastOneFigure(String password) {
-        char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (Character.isDigit(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean containAtLeastOneSpecialSymbol(String password) {
-        char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (!Character.isLetter(letter)
-                    && !Character.isDigit(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean containForbiddenTextSequences(String password) {
-        for (String forbiddenTextSequence : FORBIDDEN_TEXT_SEQUENCES) {
-            if (password.toLowerCase().contains(forbiddenTextSequence)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
