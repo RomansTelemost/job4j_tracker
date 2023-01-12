@@ -19,45 +19,48 @@ public class PasswordValidator {
         return false;
     }
 
-    private static boolean containAtLeastOneSpecialSymbol(String password) {
+    private static String checkLetters(String password) {
         char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (!Character.isLetter(letter)
-                    && !Character.isDigit(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
+        boolean hasUpperCaseLetter = false;
+        boolean hasLowerCaseLetter = false;
+        boolean hasDigit = false;
+        boolean hasSpecialSymbol = false;
 
-    private static boolean containAtLeastOneFigure(String password) {
-        char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (Character.isDigit(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean containAtLeastOneLowercaseLetter(String password) {
-        char[] letters = password.toCharArray();
-        for (char letter : letters) {
-            if (Character.isLowerCase(letter)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean containAtLeastOneUppercaseLetter(String password) {
-        char[] letters = password.toCharArray();
         for (char letter : letters) {
             if (Character.isUpperCase(letter)) {
-                return true;
+                hasUpperCaseLetter = true;
+            }
+            if (Character.isLowerCase(letter)) {
+                hasLowerCaseLetter = true;
+            }
+            if (Character.isDigit(letter)) {
+                hasDigit = true;
+            }
+            if (!Character.isLetter(letter)
+                    && !Character.isDigit(letter)) {
+                hasSpecialSymbol = true;
             }
         }
-        return false;
+
+        if (!hasUpperCaseLetter) {
+            return "Password should contain at least "
+                    + "one uppercase letter";
+        }
+
+        if (!hasLowerCaseLetter) {
+            return "Password should contain at least "
+                    + "one lowercase letter";
+        }
+
+        if (!hasDigit) {
+            return "Password should contain at least one figure";
+        }
+
+        if (!hasSpecialSymbol) {
+            return "Password should contain at least "
+                    + "one special symbol";
+        }
+        return "";
     }
 
     public static String validate(String password) {
@@ -70,23 +73,9 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
 
-        if (!containAtLeastOneUppercaseLetter(password)) {
-            throw new IllegalArgumentException("Password should contain at least "
-                    + "one uppercase letter");
-        }
-
-        if (!containAtLeastOneLowercaseLetter(password)) {
-            throw new IllegalArgumentException("Password should contain at least "
-                    + "one lowercase letter");
-        }
-
-        if (!containAtLeastOneFigure(password)) {
-            throw new IllegalArgumentException("Password should contain at least one figure");
-        }
-
-        if (!containAtLeastOneSpecialSymbol(password)) {
-            throw new IllegalArgumentException("Password should contain at least "
-                    + "one special symbol");
+        String message = checkLetters(password);
+        if (!message.isBlank()) {
+            throw new IllegalArgumentException(message);
         }
 
         if (containForbiddenTextSequences(password)) {
