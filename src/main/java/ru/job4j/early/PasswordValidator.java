@@ -40,6 +40,12 @@ public class PasswordValidator {
                     && !Character.isDigit(letter)) {
                 hasSpecialSymbol = true;
             }
+            if (hasUpperCaseLetter
+                    && hasLowerCaseLetter
+                    && hasDigit
+                    && hasSpecialSymbol) {
+                return "";
+            }
         }
 
         if (!hasUpperCaseLetter) {
