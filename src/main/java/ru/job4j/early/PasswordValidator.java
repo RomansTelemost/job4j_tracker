@@ -44,7 +44,7 @@ public class PasswordValidator {
                     && hasLowerCaseLetter
                     && hasDigit
                     && hasSpecialSymbol) {
-                return "";
+                break;
             }
         }
 
