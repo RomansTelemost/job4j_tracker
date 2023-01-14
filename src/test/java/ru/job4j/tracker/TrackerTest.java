@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrackerTest {
@@ -32,7 +34,7 @@ public class TrackerTest {
         Item second = new Item("Second");
         tracker.add(first);
         tracker.add(second);
-        Item result = tracker.findAll()[0];
+        Item result = tracker.findAll().get(0);
         assertThat(result.getName()).isEqualTo(first.getName());
     }
 
@@ -46,8 +48,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(first.getName());
-        assertThat(result.length).isEqualTo(3);
+        List<Item> result = tracker.findByName(first.getName());
+        assertThat(result.size()).isEqualTo(3);
     }
 
     @Test
@@ -60,8 +62,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(second.getName());
-        assertThat(result[1].getName()).isEqualTo(second.getName());
+        List<Item> result = tracker.findByName(second.getName());
+        assertThat(result.get(1).getName()).isEqualTo(second.getName());
     }
 
     @Test
@@ -98,9 +100,9 @@ public class TrackerTest {
         int id = item2.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id)).isNull();
-        assertThat(tracker.findAll().length).isEqualTo(2);
-        assertThat(tracker.findAll()[0]).isEqualTo(item1);
-        assertThat(tracker.findAll()[1]).isEqualTo(item3);
+        assertThat(tracker.findAll().size()).isEqualTo(2);
+        assertThat(tracker.findAll().get(0)).isEqualTo(item1);
+        assertThat(tracker.findAll().get(1)).isEqualTo(item3);
     }
 
     @Test
@@ -115,9 +117,9 @@ public class TrackerTest {
         boolean result = tracker.delete(1000);
         assertThat(tracker.findById(item1.getId()).getName()).isEqualTo("Bug1");
         assertThat(result).isFalse();
-        assertThat(tracker.findAll().length).isEqualTo(3);
-        assertThat(tracker.findAll()[0]).isEqualTo(item1);
-        assertThat(tracker.findAll()[1]).isEqualTo(item2);
-        assertThat(tracker.findAll()[2]).isEqualTo(item3);
+        assertThat(tracker.findAll().size()).isEqualTo(3);
+        assertThat(tracker.findAll().get(0)).isEqualTo(item1);
+        assertThat(tracker.findAll().get(1)).isEqualTo(item2);
+        assertThat(tracker.findAll().get(2)).isEqualTo(item3);
     }
 }
