@@ -22,6 +22,6 @@ class ItemAscByNameTest {
         list.add(new Item(1, "Request 1"));
         list.add(new Item(5, "Request 5"));
         Collections.sort(list, new ItemAscByName());
-        assertThat(list).containsAll(expected);
+        assertThat(list).containsSequence(expected);
     }
 }

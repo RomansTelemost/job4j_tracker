@@ -21,7 +21,7 @@ class ItemDescByNameTest {
         list.add(new Item(3, "Request 3"));
         list.add(new Item(1, "Request 1"));
         list.add(new Item(5, "Request 5"));
-        Collections.sort(list, new ItemAscByName());
-        assertThat(list).containsAll(expected);
+        Collections.sort(list, new ItemDescByName());
+        assertThat(list).containsSequence(expected);
     }
 }

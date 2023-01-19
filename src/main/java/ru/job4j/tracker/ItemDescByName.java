@@ -6,6 +6,6 @@ public class ItemDescByName implements Comparator<Item> {
 
     @Override
     public int compare(Item left, Item right) {
-        return left.getName().compareTo(right.getName());
+        return right.getName().compareTo(left.getName());
     }
 }
