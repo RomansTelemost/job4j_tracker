@@ -2,6 +2,12 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает банковский счет.
+ * Для equals and hashCode методов используется только поле requisite
+ * @author Roman Telemost
+ * @version 1.0
+ */
 public class Account {
 
     private String requisite;
