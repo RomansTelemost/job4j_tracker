@@ -1,6 +1,5 @@
 package ru.job4j.lambda;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -23,13 +22,13 @@ public class AttachmentSort {
         };
         attachments.sort(comparator);
         System.out.println(attachments);
-        ArrayList<Integer> list = new ArrayList<Integer>() {
+        Comparator<Attachment> sortByName = new Comparator<Attachment>() {
             @Override
-            public boolean add(Integer o) {
-                System.out.println("Add a new element to list: " + o);
-                return super.add(o);
+            public int compare(Attachment o1, Attachment o2) {
+                return o1.getName().compareTo(o2.getName());
             }
         };
-        list.add(100500);
+        attachments.sort(sortByName);
+        System.out.println(attachments);
     }
 }
