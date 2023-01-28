@@ -20,8 +20,8 @@ class FunctionCalculatorTest {
     @Test
     public void whenSquareFunctionThenSquareResults() {
         FunctionCalculator function = new FunctionCalculator();
-        List<Double> result = function.diapason(5, 8, x -> 2 * Math.sqrt(x) + 6 * x + 9);
-        List<Double> expected = Arrays.asList(43.47D, 49.9D, 56.29D);
+        List<Double> result = function.diapason(5, 8, x -> 2 * Math.pow(2, x) + 6 * x + 9);
+        List<Double> expected = Arrays.asList(103D, 173D, 307D);
         assertThat(result).containsAll(expected);
     }
 

@@ -9,7 +9,7 @@ public class FunctionCalculator {
     public List<Double> diapason(int start, int end, Function<Double, Double> func) {
         List<Double> doubles = new ArrayList<>();
         for (double i = start; i < end; i++) {
-            doubles.add((double) Math.round(func.apply(i) * 100) / 100);
+            doubles.add(func.apply(i));
         }
         return doubles;
     }
