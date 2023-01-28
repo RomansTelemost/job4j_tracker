@@ -18,4 +18,15 @@ public class Profiles {
                 .sorted(Comparator.comparing(Address::getCity))
                 .collect(Collectors.toList());
     }
+
+    public static void main(String[] args) {
+        System.out.println(
+                List.of(1, 1, 2, 2).stream()
+                        .collect(Collectors.toMap(
+                                e -> e,
+                                e -> e * e,
+                                (existing, replacement) -> existing
+                        ))
+        );
+    }
 }
