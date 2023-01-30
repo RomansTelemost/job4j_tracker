@@ -1,4 +1,4 @@
-package ru.job4j.designPatterns.strategy;
+package ru.job4j.patterns.strategy;
 
 public class Paint {
 
