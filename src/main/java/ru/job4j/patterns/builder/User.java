@@ -1,4 +1,4 @@
-package ru.job4j.designPatterns.builder;
+package ru.job4j.patterns.builder;
 
 import java.util.Objects;
 
