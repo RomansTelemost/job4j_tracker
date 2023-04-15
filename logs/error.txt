@@ -1,0 +1,139 @@
+2023-04-12 22:53:50,767 +0300 [main] ERROR (StartUI.java:56) - Error
+java.lang.IllegalStateException: org.postgresql.util.PSQLException: FATAL: database "tracker1" does not exist
+	at ru.job4j.tracker.SqlTracker.init(SqlTracker.java:34)
+	at ru.job4j.tracker.SqlTracker.<init>(SqlTracker.java:15)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:44)
+Caused by: org.postgresql.util.PSQLException: FATAL: database "tracker1" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2788)
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:174)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:290)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:247)
+	at org.postgresql.Driver.makeConnection(Driver.java:434)
+	at org.postgresql.Driver.connect(Driver.java:291)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at ru.job4j.tracker.SqlTracker.init(SqlTracker.java:28)
+	... 2 more
+2023-04-12 23:04:47,154 +0300 [main] ERROR (StartUI.java:56) - Error
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "items" is null
+	at ru.job4j.tracker.actions.ShowAllAction.execute(ShowAllAction.java:24)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:02:48,187 +0300 [main] ERROR (SqlTracker.java:61) - Item: Item{id=0, name='name', created=15-April-Saturday-2023 20:02:48}
+2023-04-15 20:03:15,289 +0300 [main] ERROR (SqlTracker.java:61) - Item: Item{id=0, name='name1', created=15-April-Saturday-2023 20:03:15}
+org.postgresql.util.PSQLException: ERROR: column "name1" does not exist
+  Hint: Perhaps you meant to reference the column "items.name".
+  Position: 41
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:333)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:295)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:244)
+	at ru.job4j.tracker.SqlTracker.add(SqlTracker.java:53)
+	at ru.job4j.tracker.actions.CreateAction.execute(CreateAction.java:23)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:12:34,786 +0300 [main] ERROR (SqlTracker.java:62) - Item: Item{id=0, name='name1', created=15-April-Saturday-2023 20:12:34}
+org.postgresql.util.PSQLException: ERROR: column "name1" does not exist
+  Hint: Perhaps you meant to reference the column "items.name".
+  Position: 41
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:333)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:295)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:244)
+	at ru.job4j.tracker.SqlTracker.add(SqlTracker.java:53)
+	at ru.job4j.tracker.actions.CreateAction.execute(CreateAction.java:23)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:12:46,642 +0300 [main] ERROR (SqlTracker.java:62) - Item: Item{id=0, name='name', created=15-April-Saturday-2023 20:12:46}
+org.postgresql.util.PSQLException: ERROR: column "name" does not exist
+  Hint: There is a column named "name" in table "items", but it cannot be referenced from this part of the query.
+  Position: 41
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:333)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:295)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:244)
+	at ru.job4j.tracker.SqlTracker.add(SqlTracker.java:53)
+	at ru.job4j.tracker.actions.CreateAction.execute(CreateAction.java:23)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:13:36,256 +0300 [main] ERROR (SqlTracker.java:62) - Item: Item{id=0, name='name1', created=15-April-Saturday-2023 20:13:36}
+org.postgresql.util.PSQLException: ERROR: column "name1" does not exist
+  Hint: Perhaps you meant to reference the column "items.name".
+  Position: 41
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:333)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:295)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:268)
+	at ru.job4j.tracker.SqlTracker.add(SqlTracker.java:53)
+	at ru.job4j.tracker.actions.CreateAction.execute(CreateAction.java:23)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:15:26,755 +0300 [main] ERROR (SqlTracker.java:62) - Item: Item{id=0, name='name1', created=15-April-Saturday-2023 20:15:26}
+org.postgresql.util.PSQLException: ERROR: column "name1" does not exist
+  Hint: Perhaps you meant to reference the column "items.name".
+  Position: 41
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:333)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:295)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:268)
+	at ru.job4j.tracker.SqlTracker.add(SqlTracker.java:53)
+	at ru.job4j.tracker.actions.CreateAction.execute(CreateAction.java:23)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:22:54,661 +0300 [main] ERROR (SqlTracker.java:68) - Item: Item{id=0, name='name1', created=15-April-Saturday-2023 20:22:54}
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "VALES"
+  Position: 34
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:177)
+	at ru.job4j.tracker.SqlTracker.add(SqlTracker.java:57)
+	at ru.job4j.tracker.actions.CreateAction.execute(CreateAction.java:23)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
+2023-04-15 20:51:00,281 +0300 [main] ERROR (SqlTracker.java:129) - findByName
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "%"
+  Position: 37
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:333)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:295)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:244)
+	at ru.job4j.tracker.SqlTracker.findByName(SqlTracker.java:118)
+	at ru.job4j.tracker.actions.FindByNameAction.execute(FindByNameAction.java:24)
+	at ru.job4j.tracker.StartUI.init(StartUI.java:30)
+	at ru.job4j.tracker.StartUI.main(StartUI.java:54)
