@@ -1,6 +1,6 @@
 ------------------------------
 В ручную:
-Команда jmap -dump:live,file=C:\PerfLogs\dump\heapDump.bin
+Команда jmap -dump:live,file=C:\PerfLogs\dump\heapDump.bin <pid>
 Сгенерирует файл дампа и можно его открыть Visual VM
 
 ------------------------------
