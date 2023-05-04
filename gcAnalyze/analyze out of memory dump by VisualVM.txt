@@ -1,3 +1,4 @@
+Информация о профилировании в папке gcAnalyze. Доступно в проектах job4j_Tracker, job4j_design.
 ------------------------------
 В ручную:
 Команда jmap -dump:live,file=C:\PerfLogs\dump\heapDump.bin <pid>
