@@ -1,13 +1,16 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.actions;
 
-import ru.job4j.tracker.actions.UserAction;
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.Store;
 
 import java.util.List;
 
-public class DeleteAllItems implements UserAction {
+public class DeleteAllItemsAction implements UserAction {
     private final Output out;
 
-    public DeleteAllItems(Output out) {
+    public DeleteAllItemsAction(Output out) {
         this.out = out;
     }
 
