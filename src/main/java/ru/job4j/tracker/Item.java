@@ -1,16 +1,19 @@
 package ru.job4j.tracker;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Item {
+    @EqualsAndHashCode.Include
     private int id;
+    @EqualsAndHashCode.Include
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
@@ -29,22 +32,5 @@ public class Item {
         this.id = id;
         this.name = name;
 
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Item item = (Item) o;
-        return id == item.id && Objects.equals(name, item.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
     }
 }
