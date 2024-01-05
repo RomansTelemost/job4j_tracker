@@ -15,5 +15,13 @@ public class LombokUsage {
                 .accessBy("delete")
                 .build();
         System.out.println(role);
+
+        var permission = Permission.of()
+                .id(1)
+                .name("name")
+                .addAccess("create")
+                .addAccess("delete")
+                .build();
+        System.out.println(permission);
     }
 }
