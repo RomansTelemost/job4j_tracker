@@ -3,7 +3,11 @@ package ru.job4j.tracker.actions;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import ru.job4j.tracker.*;
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.Store;
+import ru.job4j.tracker.StubOutput;
+import ru.job4j.tracker.repository.MemTracker;
 
 class CreateActionTest {
 
