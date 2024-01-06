@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+logs
 
 # Log file
 *.log
@@ -27,6 +28,6 @@ hs_err_pid*
 
 target
 out
-logs
+logs/debug.txt
 testdb.mv.db
 testdb.trace.db
