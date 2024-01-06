@@ -41,7 +41,9 @@ public class HQLUsage {
     }
 
     public static void unique(Session session) {
-        //as - не обязательно
+        /**
+         * as - не обязательно
+         */
         Query<Item> query = session.createQuery(
                 "from Item as i where i.id = 4", Item.class);
         System.out.println(query.uniqueResult());
