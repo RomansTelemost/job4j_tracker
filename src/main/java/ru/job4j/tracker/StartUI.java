@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.job4j.tracker.actions.*;
-import ru.job4j.tracker.repository.MemTracker;
+import ru.job4j.tracker.repository.HbmTracker;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +46,7 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        try (Store tracker = new MemTracker()) {
+        try (Store tracker = new HbmTracker()) {
             List<UserAction> actions = Arrays.asList(
                     new CreateManyItemsAction(output),
                     new EditAction(output),
