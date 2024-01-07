@@ -18,7 +18,6 @@ public class HbmTracker implements Store, AutoCloseable {
             .configure().build();
     private final SessionFactory sf = new MetadataSources(registry)
             .buildMetadata().buildSessionFactory();
-
     private static final Logger LOG = LoggerFactory.getLogger(HbmTracker.class.getName());
 
     @Override
@@ -31,8 +30,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Error while add item " + item, e);
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
-        session.close();
         return item;
     }
 
@@ -53,8 +53,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Error while replace item " + item + " with id " + id, e);
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
-        session.close();
         return result;
     }
 
@@ -72,8 +73,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Error while delete item with id " + id, e);
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
-        session.close();
         return result;
     }
 
@@ -89,8 +91,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Error while findAll", e);
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
-        session.close();
         return items;
     }
 
@@ -108,8 +111,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Error while findByName" + key, e);
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
-        session.close();
         return items;
     }
 
@@ -127,8 +131,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             LOG.error("Error while findById " + id, e);
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
-        session.close();
         return item;
     }
 
