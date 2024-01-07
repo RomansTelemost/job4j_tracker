@@ -65,9 +65,9 @@ public class HbmTracker implements Store, AutoCloseable {
         boolean result = false;
         try {
             session.beginTransaction();
-            Item item = new Item();
-            item.setId(id);
-            session.delete(item);
+            Query query = session.createQuery("DELETE FROM Item WHERE id = :itemId");
+            query.setParameter("itemId", id);
+            query.executeUpdate();
             session.getTransaction().commit();
             result = true;
         } catch (Exception e) {
