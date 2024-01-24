@@ -24,7 +24,7 @@ public class HbmRun {
             create(user, sf);
             findAll(User.class, sf)
                     .forEach(System.out::println);
-        } catch (Exception e) {
+        }  catch (Exception e) {
             e.printStackTrace();
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);

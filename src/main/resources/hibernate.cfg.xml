@@ -15,7 +15,7 @@
 <!--        <property name="hibernate.format_sql">true</property>-->
 
         <mapping class="ru.job4j.tracker.Item" />
-        <mapping class="ru.job4j.toone.Role" />
         <mapping class="ru.job4j.toone.User" />
+        <mapping class="ru.job4j.toone.Role" />
     </session-factory>
 </hibernate-configuration>

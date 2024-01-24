@@ -16,5 +16,4 @@ public class Role {
     @EqualsAndHashCode.Include
     private int id;
     private String name;
-
 }
