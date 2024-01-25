@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ru.job4j.tracker.Item;
 
 import java.util.List;
 
@@ -26,6 +27,10 @@ public class HbmRun {
             ));
             user.setRole(role);
             create(user, sf);
+            var item = new Item();
+            item.setName("Learn Hibernate");
+            item.setParticipates(List.of(user));
+            create(item, sf);
             findAll(User.class, sf)
                     .forEach(System.out::println);
             var stored = sf.openSession()
@@ -33,7 +38,15 @@ public class HbmRun {
                     .setParameter("fId", user.getId())
                     .getSingleResult();
             stored.getMessengers().forEach(System.out::println);
-        }  catch (Exception e) {
+            var findItem = sf.openSession()
+                    .createQuery("from Item where id = :fId", Item.class)
+                    .setParameter("fId", item.getId())
+                    .getSingleResult();
+
+            findItem.getParticipates()
+                    .forEach(System.out::println);
+            stored.getMessengers().forEach(System.out::println);
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
@@ -48,6 +61,24 @@ public class HbmRun {
         session.close();
     }
 
+    public static void update(Item item, SessionFactory sf) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.update(item);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public static void delete(Integer id, SessionFactory sf) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item item = new Item();
+        item.setId(id);
+        session.delete(item);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public static <T> List<T> findAll(Class<T> cl, SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
@@ -55,5 +86,14 @@ public class HbmRun {
         session.getTransaction().commit();
         session.close();
         return list;
+    }
+
+    public static Item findById(Integer id, SessionFactory sf) {
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item result = session.get(Item.class, id);
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 }
