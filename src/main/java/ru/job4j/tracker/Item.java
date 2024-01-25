@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
@@ -20,7 +20,7 @@ public class Item {
     private int id;
     @EqualsAndHashCode.Include
     private String name;
-    private LocalDate created = LocalDate.now();
+    private LocalDateTime created = LocalDateTime.now();
 
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
