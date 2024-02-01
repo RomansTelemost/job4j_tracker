@@ -10,4 +10,5 @@
     <include file="scripts/004_ddl_create_users_table.sql" relativeToChangelogFile="true"/>
     <include file="scripts/005_ddl_create_table_userNotification.sql" relativeToChangelogFile="true"/>
     <include file="scripts/006_ddl_create_participates_table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/007_dml_remove_create_created_column_item.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>
